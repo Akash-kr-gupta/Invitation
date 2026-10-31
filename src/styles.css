@@ -12,4 +12,4 @@
 .portrait-groom{content:url('/couple-story.jpeg');object-position:center center}.art-ring img{content:url('/hands-detail.jpeg');object-position:center center}.memory-strip>img:first-child{content:url('/couple-walk.jpeg')}.memory-strip>img:last-child{content:url('/hands-detail.jpeg')}.hero-image{background-position:center center}.hero-content{width:min(900px,calc(100% - 48px));padding:96px 24px 72px;margin-top:0}.hero-names{font-size:clamp(62px,9vw,124px);line-height:.88}.hero-caption{max-width:430px;margin-left:auto;margin-right:auto}.scroll-cue{margin-top:38px}
 @media (max-width:700px){.hero-content{width:calc(100% - 32px);padding:80px 12px 68px}.hero-names{font-size:clamp(58px,18vw,82px);letter-spacing:-3px}.hero-image{background-position:center center}.hero-bottom-note{bottom:18px}.scroll-cue{margin-top:30px}}
 .portrait-groom{content:url('/groom-img-9601.jpeg')}.art-ring img{content:url('/details-dsc-5587.jpeg')}
-.story .portrait-groom,.story .bride-feature img{filter:blur(6px) saturate(.58);transform:scale(1.025)}
+.story .portrait-groom,.story .bride-feature img{filter:blur(10px) saturate(.35);transform:scale(1.04)}
