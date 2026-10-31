@@ -6,7 +6,7 @@ import "./styles.css";
 const events = [
   { date: "26", month: "NOV", day: "Wednesday", title: "Tilak Ceremony", note: "Auspicious beginnings & blessings" },
   { date: "28", month: "NOV", day: "Friday", title: "Haldi & Mehendi", note: "A day of colour, music & laughter" },
-  { date: "29", month: "NOV", day: "Saturday", title: "Ghritdhari & Matri Pujan", note: "Rituals that bind two families" },
+  { date: "29", month: "NOV", day: "Saturday", title: "Grihdhari & Matri Pujan", note: "Rituals that bind two families" },
   { date: "30", month: "NOV", day: "Sunday", title: "Baraat & Shubh Vivah", note: "The day our forever begins" },
 ];
 
