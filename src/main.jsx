@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { ArrowDown, ArrowUpRight, CalendarDays, Clock3, Heart, MapPin, Menu, Sparkles, X } from "lucide-react";
+import { ArrowDown, ArrowUpRight, CalendarDays, Clock3, Heart, MapPin, Menu, Pause, Play, Sparkles, X } from "lucide-react";
 import "./styles.css";
 
 const events = [
@@ -12,7 +12,25 @@ const events = [
 
 function App() {
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const [musicPlaying, setMusicPlaying] = React.useState(false);
+  const audioRef = React.useRef(null);
   const closeMenu = () => setMenuOpen(false);
+
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+    if (musicPlaying) {
+      audioRef.current.pause();
+      setMusicPlaying(false);
+    } else {
+      audioRef.current.play().then(() => setMusicPlaying(true)).catch(() => setMusicPlaying(false));
+    }
+  };
+
+  React.useEffect(() => {
+    audioRef.current?.play().then(() => setMusicPlaying(true)).catch(() => {
+      // Browsers may block autoplay until the visitor interacts with the page.
+    });
+  }, []);
 
   React.useEffect(() => {
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("is-visible")), { threshold: 0.12 });
@@ -22,6 +40,11 @@ function App() {
 
   return (
     <main>
+      <audio ref={audioRef} src="/wedding-song.mp3" loop preload="auto" />
+      <button className={`music-toggle ${musicPlaying ? "is-playing" : ""}`} onClick={toggleMusic} aria-label={musicPlaying ? "Pause wedding music" : "Play wedding music"} title={musicPlaying ? "Pause wedding music" : "Play wedding music"}>
+        {musicPlaying ? <Pause size={15} /> : <Play size={15} />}
+        <span>{musicPlaying ? "Music on" : "Play music"}</span>
+      </button>
       <nav className="nav">
         <a className="brand" href="#home" onClick={closeMenu}>A<span>♥</span>R</a>
         <div className="nav-date"><CalendarDays size={14} /> 30 NOVEMBER 2026</div>
